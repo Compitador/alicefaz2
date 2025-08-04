@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convite de Aniversário - Alice faz 2 aninhos!</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilos personalizados e animações */
+        body {
+            font-family: 'Nunito', sans-serif;
+            background-color: #aee2ff; /* Um azul céu mais claro como base */
+            overflow-x: hidden; /* Previne scroll horizontal por causa dos confetes */
+        }
+        h1, h2, h3 {
+            font-family: 'Fredoka One', cursive;
+        }
+        .text-shadow {
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        .card {
+            background-color: white;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+            border: 4px solid #FFD700; /* Borda amarela */
+        }
+        
+        /* Animação de flutuação */
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        /* Animação de balanço do pintinho */
+        @keyframes wobble {
+            0%, 100% { transform: rotate(-3deg); }
+            50% { transform: rotate(3deg); }
+        }
+        .animate-wobble {
+            animation: wobble 2s ease-in-out infinite;
+        }
+
+        /* --- Estilos para os Confetes --- */
+        #confetti-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .confetti {
+            position: absolute;
+            width: 10px;
+            height: 10px;
+            opacity: 0.9;
+            animation: fall linear infinite;
+        }
+
+        @keyframes fall {
+            from {
+                transform: translateY(-10vh) rotate(0deg);
+            }
+            to {
+                transform: translateY(110vh) rotate(720deg);
+            }
+        }
+    </style>
+</head>
+<body class="text-gray-800">
+
+    <!-- Container para os Confetes -->
+    <div id="confetti-container"></div>
+
+    <!-- Container Principal -->
+    <div class="relative container mx-auto p-4 md:p-8 max-w-4xl z-20">
+
+        <!-- Header com Personagens -->
+        <header class="text-center mb-8 relative">
+            <!-- Galinha Pintadinha (Esquerda) -->
+            <div class="absolute top-0 left-0 -translate-x-1/4 md:-translate-x-1/2 w-24 h-24 md:w-32 md:h-32 animate-float" style="animation-delay: 0s;">
+                <img src="images/galinha.png" alt="Galinha Pintadinha" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/200x200/3B82F6/FFFFFF?text=Galinha';">
+            </div>
+            <!-- Pintinho Amarelinho (Direita) - CORRIGIDO -->
+            <div class="absolute top-0 right-0 w-24 h-24 md:w-28 md:h-28 animate-wobble" style="animation-delay: 1s;">
+                <img src="images/pintinho.png" alt="Pintinho Amarelinho" class="w-full h-full object-contain" onerror="this.onerror=null;this.src='https://placehold.co/200x200/FBBF24/FFFFFF?text=Pintinho';">
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl text-white text-shadow font-bold text-red-500">Alice faz 2!</h1>
+            <p class="text-xl md:text-2xl text-yellow-300 font-semibold mt-2 text-shadow">Você é nosso convidado especial!</p>
+        </header>
+
+        <!-- Card Principal -->
+        <div class="card p-6 md:p-10">
+            <div class="grid md:grid-cols-2 gap-8 items-center">
+                
+                <!-- Seção da Foto -->
+                <div class="text-center">
+                    <div class="w-full aspect-square bg-gray-100 rounded-xl flex items-center justify-center overflow-hidden border-4 border-white shadow-lg">
+                        <img src="images/alice.jpg" alt="Foto da Alice" class="w-full h-full object-cover" onerror="this.onerror=null;this.src='https://placehold.co/400x400/cccccc/FFFFFF?text=Foto+da+Alice';">
+                    </div>
+                </div>
+
+                <!-- Informações da Festa -->
+                <div class="text-center md:text-left">
+                    <h2 class="text-3xl md:text-4xl text-blue-500 mb-6">Uma festa cheia de alegria!</h2>
+                    
+                    <div class="space-y-4 text-lg">
+                        <p><strong class="text-red-500">Aniversariante:</strong> Alice Lima dos Santos</p>
+                        <p><strong class="text-red-500">Data:</strong> 23 de Agosto de 2025</p>
+                        <p><strong class="text-red-500">Horário:</strong> 14:00</p>
+                        <p><strong class="text-red-500">Local:</strong> Vivare Turu - São Luís, MA</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Divisor -->
+            <hr class="my-8 border-t-2 border-dashed border-yellow-400">
+
+            <!-- Seção de Presentes e Mapa -->
+            <div class="grid md:grid-cols-2 gap-8">
+                
+                <!-- Dicas de Presente -->
+                <div class="bg-red-100 p-6 rounded-xl border-2 border-red-300">
+                    <h3 class="text-2xl text-red-600 mb-4 text-center">Dicas de Presente</h3>
+                    <p class="text-center mb-4">Para quem quiser presentear a Alice, seu carinho é o mais importante! Mas se quiser uma ajudinha:</p>
+                    <div class="flex justify-around text-center">
+                        <div>
+                            <p class="font-bold text-lg">Roupinhas</p>
+                            <p class="text-xl text-red-500 font-bold">3 anos</p>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">Calçados</p>
+                            <p class="text-xl text-red-500 font-bold">22</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Mapa -->
+                <div class="bg-blue-100 p-6 rounded-xl border-2 border-blue-300">
+                     <h3 class="text-2xl text-blue-600 mb-4 text-center">Como Chegar</h3>
+                     <div class="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden border-2 border-white">
+                        <iframe 
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3985.545892555008!2d-44.21552162573759!3d-2.507737098090595!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x7f692262cb5dc33%3A0xc4181b8332fa3619!2sVivare%20Turu!5e0!3m2!1spt-BR!2sbr!4v1722737295537!5m2!1spt-BR!2sbr" 
+                            width="100%" 
+                            height="100%" 
+                            style="border:0;" 
+                            allowfullscreen="" 
+                            loading="lazy" 
+                            referrerpolicy="no-referrer-when-downgrade">
+                        </iframe>
+                     </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <footer class="text-center mt-8">
+            <p class="text-white font-semibold text-shadow">Feito com muito amor para celebrar a vida da nossa pequena!</p>
+        </footer>
+    </div>
+
+    <!-- Elemento de Áudio com autoplay -->
+    <audio id="background-music" loop autoplay>
+        <source src="audio/musica_fundo.mp3" type="audio/mpeg">
+        Seu navegador não suporta o elemento de áudio.
+    </audio>
+
+    <!-- Botão de Controle da Música - CORRIGIDO -->
+    <button id="music-toggle" class="fixed bottom-4 right-4 bg-red-500 hover:bg-red-600 text-white p-3 rounded-lg shadow-lg focus:outline-none z-50 transition-all flex items-center">
+        <svg id="icon-sound-on" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 hidden" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+        </svg>
+        <svg id="icon-sound-off" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" clip-rule="evenodd" />
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2" />
+        </svg>
+        <span id="music-text" class="font-semibold text-sm ml-2">Ative o som</span>
+    </button>
+
+    <script>
+        // --- Script para criar os confetes ---
+        function createConfetti() {
+            const container = document.getElementById('confetti-container');
+            const colors = ['#ef4444', '#f59e0b', '#3b82f6', '#ffffff']; // Vermelho, Amarelo, Azul, Branco
+            const confettiCount = 100;
+
+            for (let i = 0; i < confettiCount; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
+                confetti.style.animationDuration = (Math.random() * 3 + 4) + 's'; // Duração entre 4s e 7s
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.transform = `scale(${Math.random() * 0.8 + 0.5})`; // Tamanhos variados
+                container.appendChild(confetti);
+            }
+        }
+
+        // --- Script para controle da música - CORRIGIDO ---
+        const music = document.getElementById('background-music');
+        const toggleButton = document.getElementById('music-toggle');
+        const iconOn = document.getElementById('icon-sound-on');
+        const iconOff = document.getElementById('icon-sound-off');
+        const musicText = document.getElementById('music-text');
+
+        function updateIcon(isPlaying) {
+            if (isPlaying) {
+                iconOn.classList.remove('hidden');
+                iconOff.classList.add('hidden');
+                musicText.classList.add('hidden');
+            } else {
+                iconOn.classList.add('hidden');
+                iconOff.classList.remove('hidden');
+                musicText.classList.remove('hidden');
+            }
+        }
+
+        window.onload = function() {
+            // Inicia os confetes
+            createConfetti();
+
+            // Tenta tocar a música.
+            let playPromise = music.play();
+            if (playPromise !== undefined) {
+                playPromise.then(_ => {
+                    updateIcon(true);
+                }).catch(error => {
+                    console.log("Autoplay bloqueado pelo navegador.");
+                    updateIcon(false);
+                });
+            }
+        };
+
+        // Adiciona o evento de clique ao botão de toggle
+        toggleButton.addEventListener('click', () => {
+            if (music.paused) {
+                music.play();
+            } else {
+                music.pause();
+            }
+        });
+
+        // Atualiza o ícone quando o estado da música muda
+        music.onplay = () => updateIcon(true);
+        music.onpause = () => updateIcon(false);
+
+    </script>
+</body>
+</html>
